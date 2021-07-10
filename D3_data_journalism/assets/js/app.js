@@ -46,4 +46,31 @@ d3.csv("assets/data/data.csv").then(function (censusData) {
     	.append('option')
       .text(function (d) { return d; }) // text showed in the menu
       .attr("value", function (d) { return d; })
+    // Function that updates values
+    function update(chosenXAxis, chosenYAxis) {
+        d3.select("#selectButton1")
+        var selectedOptionX = d3.select(this).property("value")
+        var xLabel;
+        if (selectedOptionX === "Poverty") {
+        xLabel = "In Poverty (%)";
+        }
+        else if (selectedOptionX === "Age") {
+        xLabel = "Age (Median)";
+        }
+        else {
+        xLabel = "Household Income (Median)";
+        }
+        d3.select("#selectButton2")
+        var selectedOptionY = d3.select(this).property("value")
+        var yLabel;
+        if (selectedOptionY === "healthcare") {
+        yLabel = "Lacks Healthcare (%)";
+        }
+        else if (selectedOptionY === "smokes") {
+        yLabel = "Smokes (%)";
+        }
+        else {
+        yLabel = "Obese (%)";
+        }}
+
 });
