@@ -14,42 +14,42 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-md-12">
-        <h1 class="bg-light">D3Times | Interactive Visualization Graph</h1>
-        <h5>Select the variables to compare:</h5>
-        <div class="row bg-white">
-          <div class="col-md-3">
-            <p>Select a variable for the x axis:</p>
-            <select id="selectButton1"></select>
-          </div>
-          <div class="col-md-3">
-            <p>Select a variable for the x axis:</p>
-            <select id="selectButton2"></select>
-          </div>
-        </div>
+        <h1 class="bg-light text-center">D3Times | Visualization Plots</h1>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12  col-md-9">
-        <div id="scatter">
+      <div class="col-md-12">
+        <div id="scatter1">
           <!-- We append our chart here. -->
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12  col-md-9">
+      <div class="col-md-12">
+        <div id="scatter2">
+          <!-- We append our chart here. -->
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
         <div class="article">
-          <h2>Correlations Discovered Between Health Risks and Age, Income</h2>
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor
-            quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
-            ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+          <h2>Correlations Discovered Between: </h2>
+          <h3>Poverty And Access to Healthcare</h3>
+          <p>There is a positive correlation between the lack of access to healthcare and the percentage of
+            people living in poverty. States such as MA and NH have low poverty rates and exhibit a low percentage of 
+            people without access to healthcare, while states like MS and NM are the opposite. The state with the least people
+            with access to healthcare is TX, while MA has the most people with access to healthcare.</p>
+          <h3>Median Household Income And Obesity</h3>
+          <p>Obesity is negatively correlated to median household income. States with less household incomes tend to have higher
+            obesity rates, such as MS and AR. At the same time, states like DC and CO have higher median incomes but yield some 
+            of the lowest percentages of people with obesity. AR is the state with the most people with obesity, while CO yields
+            the least people with obesity.</p>
+          <h3>Conclusion</h3>
+          <p>The results obtained from the previous correlations make sense. For one, people that earn less tend to live in poverty,
+            and thus have less money to spend both in healthcare and in healthy food, and as fast food and junk foods in general tend
+            to be cheaper, this translates into higher obesity rates.</p>
         </div>
       </div>
     </div>
