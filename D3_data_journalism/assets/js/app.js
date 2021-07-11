@@ -39,6 +39,35 @@ d3.select("#selectButton2")
     .text(function (d) { return d; })
     .attr("value", function (d) { return d; })
 
+// Functions that turn options into csv variables
+function xVarsCsv() {
+    var buttonx = d3.select("selectButton1").property("value").text()
+    if (buttonx === "Poverty") {
+        xAxisSelect === "poverty"
+    }
+    else if (buttonx === "Age") {
+        xAxisSelect === "age"
+    }
+    else 
+        xAxisSelect === "income"
+    console.log(xAxisSelect)
+}
+function yVarsCsv() {
+    var buttony = d3.select("selectButton2").property("value")
+    if (buttony === "Obesity") {
+        yAxisSelect === "obesity"
+    }
+    else if (buttony === "Smoking") {
+        yAxisSelect === "smokes"
+    }
+    else 
+        yAxisSelect === "healthcare"
+    console.log(yAxisSelect)
+}
+// Initial axes
+var xAxisSelect = "poverty";
+var yAxisSelect = "healthcare";
+
 // Import data from CSV
 d3.csv("assets/data/data.csv").then(function (usdata) {
     // Parse the data
@@ -51,12 +80,8 @@ d3.csv("assets/data/data.csv").then(function (usdata) {
         data.smokes = +data.smokes;
     });
     // Create initial scale functions
-    var xLinearScale = d3.scaleLinear()
-    .domain([d3.min(usdata, d => d.poverty) * 0.9, d3.max(usdata, d => d.poverty) * 1.1])
-    .range([0,width]);
-    var yLinearScale = d3.scaleLinear()
-    .domain([d3.min(usdata, d => d.healthcare) * 0.8, d3.max(usdata, d => d.healthcare) * 1.1])
-    .range([height, 0]);
+    var xLinearScale = xScale(usdata, xAxisSelect);
+    var yLinearScale = yScale(usdata, yAxisSelect);
     // Create axis function and append
     var bottomAxis = d3.axisBottom(xLinearScale);
     var leftAxis = d3.axisLeft(yLinearScale);
@@ -111,40 +136,12 @@ d3.csv("assets/data/data.csv").then(function (usdata) {
     console.log(error);
     });
 
-function updateX(selectedOption) {
-    // Check the value and update accordingly
-    if (selectedOption === "Age") {
-        // Create circles with text
-        var circlesGroup = chartGroup.selectAll("circle")
-        .data(usdata)
-        .enter()
-        .append("circle")
-        .classed("circle", true)
-        .attr("cx", d => xLinearScale(d.age))
-        .attr("r", "10")
-        .attr("fill", "blue")
-        .attr("opacity", ".8");
-        // Create x label variable
-        var xLabel = labelsGroup.append("text")
-        .attr("x", 0)
-        .attr("y", 20)
-        .text("Age (Median) ")
-        .style("font-weight", "bold")
-    }
-}
-
-function updateY() {
-
-}
-
 // When the buttons are changed, run the update functions
 d3.select("#selectButton1").on("change", function(d) {
     var selectedOption = d3.select(this).property("value")
-    updateX(selectedOption)
+    xVarsCsv(selectedOption)
     })
 d3.select("#selectButton2").on("change", function(d) {
     var selectedOption = d3.select(this).property("value")
-    updateY(selectedOption)
+    yVarsCsv(selectedOption)
     })
-
-runMain()
