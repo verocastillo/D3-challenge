@@ -31,3 +31,6 @@ Obesity is negatively correlated to median household income. States with less ho
 
 ## Conclusions
 The results obtained from the previous correlations make sense. For one, people that earn less tend to live in poverty, and thus have less money to spend both in healthcare and in healthy food, and as fast food and junk foods in general tend to be cheaper, this translates into higher obesity rates. More thorough analysis needs to be done in order to obtain more conclusions regarding the demographics and the health risks on the US population.
+
+## See It Live!
+You can visit the working page in the following link: https://verocastillo.github.io/D3-challenge/D3_data_journalism/
